@@ -1,8 +1,10 @@
 import socket
 import threading
+import os
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(('0.0.0.0', 65432))
+PORT = int(os.environ.get("PORT", 10000))
+server.bind(('0.0.0.0', PORT))
 server.listen()
 
 clients = []
